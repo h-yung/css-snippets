@@ -1,0 +1,293 @@
+/* Box Model*/
+* {
+     box-sizing: border-box;
+}
+
+/* Clear fix */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+
+resource: http://www.fifi.org/doc/wwwcount/Count2.5/rgb.txt.html
+
+/*******************************************/
+
+:root {
+     --color-primary: 238, 0, 0;
+     --color-secondary: 0, 0, 128;
+     --color-tertiary: 0, 206, 209;
+     --color-light: rgb(255, 255, 255);
+     --color-dark: rgb(23, 23, 23);
+     --color-neutral: 211, 211, 211;
+     --font-default: sans-serif;
+     --font-code: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+     monospace;
+}
+
+.code {
+     font-family: var(--font-code);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-bkg: var(--color-dark);
+		--color-top: var(--color-light);
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--color-bkg: var(--color-light);
+		--color-top: var(--color-dark);
+	}
+}
+
+html {
+     scroll-snap-align: start;
+     scroll-behavior: smooth;
+}
+
+body {
+     font-family: var(--font-default);
+     background: var(--color-bkg);
+     color: var(--color-top);
+}
+
+ul {
+     list-style: none;
+     display: flex;
+     align-items: baseline;
+}
+
+li {
+     margin-right: 2rem;
+     text-transform: uppercase;
+     font-size: smaller;
+     letter-spacing: 0.1em;
+     line-height: 1.3rem;
+}
+li span {
+     font-weight: bold;
+     padding: 0.2em;
+     border: 1px solid var(--color-top);
+}
+
+select {
+     border: 0;
+     border-radius: 0.2rem;
+     padding: 0.5rem;
+     background: var(--color-top);
+     color: var(--color-bkg);
+}
+
+/******************************************
+/* MODULES
+/*******************************************/
+
+.container__toplevel {
+     width: 100%;
+     height: 45rem;
+     padding: 2rem;
+     /* border: 1px solid rgb(var(--color-neutral)); */
+
+     display:flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.container__code {
+     width: 100%;
+}
+
+summary {
+     margin-bottom: 0.5rem;
+}
+
+.container__code {
+     padding: 1rem;
+     background: rgba(var(--color-neutral), 0.7);
+     color: var(--color-top);
+     font-family: var(--font-code);
+}
+/* .container__code_inner {
+     width: 100%;
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 1rem;
+} */
+.container__code .label {
+     font-weight: bold;
+     margin: 0.5rem 0;
+}
+
+.container__feat {
+     width: 100%;
+     height: 100vh;
+     padding: 5%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: flex-end;
+     position: relative;
+     border: 1px solid rgb(var(--color-neutral));
+}
+
+.container__graphic {
+     width: 50rem;
+}
+
+.container__graphic_frame {
+     position: relative;
+     top: -12rem;
+     
+}
+
+.container__desc {
+     width: 100%;
+     padding: 1rem;
+}
+
+/******************************************
+/* SNIPS
+/*******************************************/
+
+/********************************************/
+/* snip-venn-diag */
+[data-id="snip-venn-diag"] .circle {
+     position: absolute;
+     width: 15rem;
+     height: 15rem;
+     border-radius: 50%;
+
+     /* text in element */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-weight: bold;
+     text-transform: uppercase;
+     letter-spacing: 0.1em;
+
+     /* interaction */
+     transition: all 0.4s ease-in 0s;
+}
+
+/* indicators */ 
+[data-id="snip-venn-diag"] .circle:hover {
+     cursor: pointer;
+     color: var(--color-light);
+}
+/* interactions */
+.hide {
+     opacity: 0;
+}
+
+
+[data-id="snip-venn-diag"] .circle.prim {
+     background: rgba(var(--color-primary), 0.5); 
+     right: 35%;
+     bottom: 5%;
+}
+[data-id="snip-venn-diag"] .circle.prim:is(:hover, :active, :focus) {
+     border: 1px solid rgb(var(--color-primary));
+     background: rgba(var(--color-primary), 0.7); 
+}
+
+[data-id="snip-venn-diag"] .circle.sec {
+     background: rgba(var(--color-secondary), 0.5);
+     right: 47%;
+     top: -6rem;
+}
+[data-id="snip-venn-diag"] .circle.sec:is(:hover, :active, :focus) {
+     border: 1px solid rgb(var(--color-secondary));
+     background: rgba(var(--color-secondary), 0.7); 
+}
+
+[data-id="snip-venn-diag"] .circle.tert {
+     background: rgba(var(--color-tertiary), 0.5);
+     right: 23%;
+     top: -6rem;
+}
+[data-id="snip-venn-diag"] .circle.tert:is(:hover, :active, :focus) {
+     border: 1px solid rgb(var(--color-tertiary));
+     background: rgba(var(--color-tertiary), 0.7); 
+}
+
+[data-id="snip-venn-diag"] .container__desc {
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+}
+
+[data-id="snip-venn-diag"] .container__desc > div:nth-of-type(2) {
+     padding: 0 1rem;
+}
+
+[data-id="snip-venn-diag"] .container__desc .prim::before {
+     content:"";
+     display: block;
+     margin-bottom: 1rem;
+     width: 4rem;
+     height: 0.2rem;
+     background: rgb(var(--color-primary));
+}
+[data-id="snip-venn-diag"] .container__desc .sec::before {
+     content:"";
+     display: block;
+     margin-bottom: 1rem;
+     width: 4rem;
+     height: 0.2rem;
+     background: rgb(var(--color-secondary));
+}
+[data-id="snip-venn-diag"] .container__desc .tert::before {
+     content:"";
+     display: block;
+     margin-bottom: 1rem;
+     width: 4rem;
+     height: 0.2rem;
+     background: rgb(var(--color-tertiary));
+}
+
+@media screen and (max-width:720px){
+     .container__feat {
+          min-height: 48rem;
+     }
+     
+     [data-id="snip-venn-diag"] .container__desc > div:nth-of-type(2) {
+          padding: 0;
+     }
+
+     [data-id="snip-venn-diag"] .container__desc {
+          flex-direction: column;
+     }
+     
+     [data-id="snip-venn-diag"] .container__desc > div {
+          margin-bottom: 1rem;
+     }
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header {
+
+}
+
+footer {
+
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
