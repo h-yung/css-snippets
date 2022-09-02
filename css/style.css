@@ -28,8 +28,8 @@ resource: http://www.fifi.org/doc/wwwcount/Count2.5/rgb.txt.html
      --color-primary: 238, 0, 0;
      --color-secondary: 0, 0, 128;
      --color-tertiary: 0, 206, 209;
-     --color-light: rgb(255, 255, 255);
-     --color-dark: rgb(23, 23, 23);
+     --color-light: 255, 255, 255; 
+     --color-dark: 23, 23, 23;
      --color-neutral: 211, 211, 211;
      --font-default: sans-serif;
      --font-code: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -42,15 +42,15 @@ resource: http://www.fifi.org/doc/wwwcount/Count2.5/rgb.txt.html
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--color-bkg: var(--color-dark);
-		--color-top: var(--color-light);
+		--color-bkg: rgb(var(--color-dark));
+		--color-top: rgb(var(--color-light));
 	}
 }
 
 @media (prefers-color-scheme: light) {
 	:root {
-		--color-bkg: var(--color-light);
-		--color-top: var(--color-dark);
+		--color-bkg: rgb(var(--color-light));
+		--color-top: rgb(var(--color-dark));
 	}
 }
 
@@ -137,9 +137,6 @@ summary {
      height: 100vh;
      padding: 5%;
      display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: flex-end;
      position: relative;
      border: 1px solid rgb(var(--color-neutral));
 }
@@ -151,7 +148,6 @@ summary {
 .container__graphic_frame {
      position: relative;
      top: -12rem;
-     
 }
 
 .container__desc {
@@ -165,6 +161,13 @@ summary {
 
 /********************************************/
 /* snip-venn-diag */
+
+[data-id="snip-venn-diag"] .container__feat {
+     flex-direction: column;
+     align-items: center;
+     justify-content: flex-end;
+}
+
 [data-id="snip-venn-diag"] .circle {
      position: absolute;
      width: 15rem;
@@ -186,7 +189,7 @@ summary {
 /* indicators */ 
 [data-id="snip-venn-diag"] .circle:hover {
      cursor: pointer;
-     color: var(--color-light);
+     color: rgb(var(--color-light));
 }
 /* interactions */
 .hide {
@@ -260,8 +263,8 @@ summary {
 }
 
 @media screen and (max-width:720px){
-     .container__feat {
-          min-height: 48rem;
+     [data-id="snip-venn-diag"] .container__feat {
+          min-height: 40rem;
      }
      
      [data-id="snip-venn-diag"] .container__desc > div:nth-of-type(2) {
@@ -277,9 +280,173 @@ summary {
      }
 }
 
+/********************************************/
+/* snip-pie-growth */
+[data-id="snip-pie-growth"] .container__feat {
+     justify-content: space-between;
+     align-items: center;
+}
+
+[data-id="snip-pie-growth"] .container__desc {
+     z-index: 2;
+     border-left: 0.2rem solid rgb(var(--color-secondary));
+     padding: 0.5rem 1rem;
+     background-color: rgba(var(--color-light), 0.5);
+}
+
+[data-id="snip-pie-growth"] .desc span {
+     font-weight: bold;
+}
+
+[data-id="snip-pie-growth"] .container__graphic {
+     width: 50rem;
+     display: flex;
+     justify-content: center;
+}
+
+[data-id="snip-pie-growth"] .container__graphic_frame {
+     top: 0rem;
+     width: 100%;
+     height: 30rem;
+}
+
+[data-id="snip-pie-growth"] .callout {
+     width: 15rem;
+     height: 15rem;
+     border-radius: 50%;
+     /* background: rgb(var(--color-bkg)); */
+
+     position: absolute;
+     left: 35%;
+     top: 7.5rem;
+
+     /* text in element */
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     text-transform: uppercase;
+     letter-spacing: 0.1em;
+     color: rgb(var(--color-light));
+}
+
+/* text in callout */
+[data-id="snip-pie-growth"] .callout > span {
+     font-weight: bold;
+     font-size: 3rem;
+}
+[data-id="snip-pie-growth"] .callout > p {
+     margin: 0;
+}
+
+
+[data-id="snip-pie-growth"] .semi-top {
+     left: 35%;
+     top:7.5rem;
+     background: rgb(var(--color-primary));
+     border-radius: 7.5rem 7.5rem 0 0;
+     height: 7.5rem;
+     width: 15rem;
+     
+     position: absolute;
+     left: 35%;
+     top: 7.5rem;
+}
+
+[data-id="snip-pie-growth"] .semi-top_2 {
+     left: 35%;
+     top:7.5rem;
+     background: rgb(var(--color-primary));
+     border-radius: 7.5rem 7.5rem 0 0;
+     height: 7.5rem;
+     width: 15rem;
+     
+     position: absolute;
+     left: 35%;
+     top: 7.5rem;
+
+     opacity: 0;
+     animation: 6s linear 0s infinite normal forwards running appear;
+
+}
+
+[data-id="snip-pie-growth"] .mask {
+     background: var(--color-bkg);
+     height: 7.5rem;
+     width: 15rem;
+
+     position: absolute;
+     left: 35%;
+     top: 7.5rem;
+
+     transform-origin: bottom center;
+     animation: 6s linear 0s infinite normal forwards running rotate-topmask;
+}
+
+[data-id="snip-pie-growth"] .semi-bottom {
+     background: rgb(var(--color-primary));
+     border-radius: 0 0 7.5rem 7.5rem;
+     height: 7.5rem;
+     width: 15rem;
+     
+     position: absolute;
+     left: 35%;
+     top: 15rem;
+
+     opacity: 0;
+     animation: 6s linear 0s infinite normal forwards running appear;
+}
+
+@keyframes rotate-topmask {
+     0% {
+         transform:rotate(0)
+     }
+
+     25% {
+         transform: rotate(0.25turn)
+     }
+     50% {
+         transform:rotate(0.5turn) 
+     }
+     75% {
+          transform:rotate(0.75turn)
+     }
+     100% {
+          transform: rotate(1turn)
+     }
+}
+
+@keyframes appear {
+     0% {
+         opacity: 0
+     }
+
+     49.9% {
+          opacity:0
+     }
+
+     50% {
+         opacity: 1
+     }
+
+     100% {
+         opacity: 1
+     }
+}
+
+@media screen and (max-width:680px){
+     [data-id="snip-pie-growth"] .container__feat {
+          flex-direction: column;
+     }
+}
+
 /******************************************
 /* LAYOUT
 /*******************************************/
+
+/* navigation */
+
+
 header {
 
 }

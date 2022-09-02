@@ -16,16 +16,22 @@
 		<nav>
 			<ul>
 				<li>
-					<label for="snippets">
-						<select id="snippets">
-							<option value="">
-								&mdash; Choose a snippet &mdash;
-							</option>
-							<option value="snip-venn-diag">
-								<a href="#snip-venn-diag">Venn diagram</a>
-							</option>
-						</select>
-					</label>	
+					<form id="chooseNav">
+						<label for="snippets">
+							<select id="snippets">
+								<option value="">
+									&mdash; Choose a snippet &mdash;
+								</option>
+								<option value="snip-venn-diag">
+									Venn diagram
+								</option>
+								<option value="snip-pie-growth">
+									Pie growth
+								</option>
+							</select>
+						</label>	
+						<button type="button" id="navigate">Go</button>
+					</form>	
 				</li>
 				<li><span>CSS code snippets</span> free to use. For longer-form projects: 
 					<a href="https://h-yung.github.com">GitHub</a>,
@@ -37,7 +43,7 @@
 				<details class="container__code" tabindex="0">
 					<summary>Code</summary>
 						<span class="label">Fiddle</span>
-						<p><a href="https://jsfiddle.net/hyung/t7smwu14/35/">Here</a> | Min-width: 530px</p>
+						<p><a href="https://jsfiddle.net/hyung/t7smwu14/46/">Here</a> | Min-width: 530px</p>
 					</div>
 					<div>
 						<span class="label">N.B.</span>
@@ -63,6 +69,38 @@
 							Third, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 						</div>
 						
+					</section>
+				</section>
+			</section>
+
+			<section id="snip-pie-growth" data-id="snip-pie-growth" class="container__toplevel">
+				<details class="container__code" tabindex="0">
+					<summary>Code</summary>
+						<span class="label">Fiddle</span>
+						<p><a href="https://jsfiddle.net/hyung/p6akhwc8/4/">Here</a> | Min-width: 400px (ideally)</p>
+					</div>
+					<div>
+						<span class="label">N.B.</span>
+						<p>Odd leakage of edge of circle behind the mask, although the dimensions should match.</p>
+					</div>
+				</details>
+				<section class="container__feat" tabindex="0">
+					<section class="container__graphic">
+						<div class="container__graphic_frame">
+							<div class="semi-top pausable"></div>
+							<div class="semi-bottom pausable"></div>
+							<div class="mask pausable" tabindex="0"></div>
+							<div class="semi-top_2 pausable"></div>
+							<div class="callout" tabindex="0">
+								<span>100K</span>
+								<p>Remark</p>
+							</div>
+						</div>
+					</section>
+					<section class="container__desc" tabindex="0">
+						<div class="desc" tabindex="0">
+							<span>Hover over the animation to pause it.</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati neque velit, distinctio totam sapiente quasi.
+						</div>
 					</section>
 				</section>
 			</section>
