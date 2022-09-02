@@ -1,5 +1,5 @@
 # css-snippets
-Snippets of styled elements, free to use. Intended for injection as code blocks, as vanilla as it can get, and with optional JavaScript to add a dash of interactivity. Will be added to at various intervals.
+Snippets of styled graphics, free to use. Intended for injection as code blocks, as vanilla as it can get, and with optional JavaScript to add a dash of interactivity. Will be added to at various intervals.
 
 **Demo:** https://h-yung.github.io/css-snippets/
 
