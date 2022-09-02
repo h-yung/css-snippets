@@ -9,7 +9,7 @@ Snippets of styled elements, free to use. Intended for injection as code blocks,
 
 ## Optimizations
 1. Refactor for greater responsiveness especially for narrowest devices.
-2. Check accessibility. Note that the tabover behavior is not working for the demo but is working in the JS Fiddle. Select dropdown is not currently keyboard accessible.
+2. Check accessibility. E.g., select dropdown is not currently keyboard accessible.
 
 ## Lessons learned
 - Units of measure (relative vs. absolute) and `position` of parent-child elements can interact in unexpected ways. 
