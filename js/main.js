@@ -7,6 +7,7 @@ const circles = document.querySelectorAll('[data-id="snip-venn-diag"] .circle')
 
 circles.forEach(elem => elem.addEventListener('click', e => revealDesc(e)))
 circles.forEach(elem => elem.addEventListener('mouseover', e => revealDesc(e)))
+circles.forEach(elem => elem.addEventListener('focus', e => revealDesc(e)))
 
 function revealDesc(e){
     if (e.target.classList.contains('prim')) {
