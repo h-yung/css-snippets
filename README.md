@@ -12,3 +12,4 @@ Snippets of styled elements, free to use. Intended for injection as code blocks,
 ## Lessons learned
 - Units of measure (relative vs. absolute) and `position` of parent-child elements can interact in unexpected ways. 
 - The dev tools view of JSFiddle is surprisingly noisy.
+- A useful resource/color lookup: http://www.fifi.org/doc/wwwcount/Count2.5/rgb.txt.html
