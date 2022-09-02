@@ -9,7 +9,7 @@ Snippets of styled elements, free to use. Intended for injection as code blocks,
 
 ## Optimizations
 1. Refactor for greater responsiveness especially for narrowest devices.
-2. Check accessibility. For one example, select dropdown is not currently keyboard accessible.
+2. Check accessibility. E.g., select dropdown is not currently keyboard accessible.
 
 ## Lessons learned
 - Units of measure (relative vs. absolute) and `position` of parent-child elements can interact in unexpected ways. 
